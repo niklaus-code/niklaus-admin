@@ -24,7 +24,21 @@ class Login(BaseView):
     @expose('/')
     def index(self):
         return self.render('index.html')
-  
+
+
+class ThoughtsModel(ModelView):
+    column_list = ('content', 'create_time', 'status') # 要展示的字段
+    form_create_rules = ('content', 'create_time', 'status')  # 控制可新建的字段
+    can_create = True  # 设置_不能
+    can_edit = True  # 设置_不能编辑
+    can_delete = False  # 设置_不能删除
+    form_edit_rules = ('content', 'create_time', 'status' )  # 控制可编辑字段
+    extra_js = ['//cdn.ckeditor.com/4.6.0/standard/ckeditor.js']
+    form_overrides = {
+        'content': CKTextAreaField
+        }
+
+
 class UsPramaModel(ModelView):
     #@logindecorator
     def is_accessible(self):

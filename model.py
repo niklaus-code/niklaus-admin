@@ -8,6 +8,18 @@ class Auth(object):
     def __init__(self):
         pass
 
+class Myblog_thoughts(db.Model):
+
+    __table_name__ = 'myblog_thoughts'
+
+    id = db.Column(db.Integer, primary_key=True, nullable=False)
+    like_number = db.Column(db.Integer, nullable=False, default=0)
+    status = db.Column(db.Integer, nullable=False, default=1)
+    create_time = db.Column(db.DateTime, nullable=False)
+    content = db.Column(db.Text, nullable=False)
+
+    def __str__(self):
+        return '%r' % self.category_id
 
 class Myblog_list(db.Model):
 
