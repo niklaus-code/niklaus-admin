@@ -31,12 +31,13 @@ class ThoughtsModel(ModelView):
     form_create_rules = ('content', 'create_time', 'status')  # 控制可新建的字段
     can_create = True  # 设置_不能
     can_edit = True  # 设置_不能编辑
-    can_delete = False  # 设置_不能删除
+    can_delete = True  # 设置_不能删除
     form_edit_rules = ('content', 'create_time', 'status' )  # 控制可编辑字段
     extra_js = ['//cdn.ckeditor.com/4.6.0/standard/ckeditor.js']
     form_overrides = {
         'content': CKTextAreaField
         }
+    column_default_sort = ('create_time', True)
 
 
 class UsPramaModel(ModelView):
